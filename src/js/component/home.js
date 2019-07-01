@@ -2,25 +2,27 @@ import React from "react";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
+import PropTypes from "prop-types";
+//create your first component7];
 
-//create your first component
-export class Home extends React.Component {
+export class MayorNumero extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	numeroMayor = (a, b, c) => {
+		return a > b && a > c ? a : b > c ? b : c > a ? c : a;
+	};
 	render() {
 		return (
-			<div className="text-center mt-5">
-				<h1>Hello Rigo!</h1>
-				<p>
-					<img src={rigoImage} />
-				</p>
-				<a href="#" className="btn btn-success">
-					If you see this green button... bootstrap is working
-				</a>
-				<p>
-					Made by{" "}
-					<a href="http://www.4geeksacademy.com">4Geeks Academy</a>,
-					with love!
-				</p>
+			<div>
+				el mayor es:
+				{this.numeroMayor(this.props.a, this.props.b, this.props.c)}
 			</div>
 		);
 	}
 }
+MayorNumero.propTypes = {
+	a: PropTypes.number,
+	b: PropTypes.number,
+	c: PropTypes.number
+};
